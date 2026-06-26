@@ -1,0 +1,25 @@
+# mac-emergency-backup
+
+Emergency backup toolkit for water-damaged MacBooks (M3/M4 with soldered, hardware-encrypted SSD).
+
+## Purpose
+
+When a MacBook gets wet, the only way to recover data is to boot the original machine. This toolkit minimizes time-on-power while maximizing what gets backed up. It includes a shell script and a Claude Code instruction file so the entire backup can be driven from a phone via remote control.
+
+## Files
+
+- `backup.sh`: Bash script. Backs up Claude Code settings, SSH keys, dotfiles, developer credentials, VS Code settings, launchd agents, and Documents/Desktop/Downloads to an external drive. Set `DEST` on line 15 before use.
+- `claude-backup-instructions.md`: Claude Code instruction file (Traditional Chinese). Claude reads this and drives the backup autonomously.
+- `開機備份.md`: Detailed SOP (Traditional Chinese). Step-by-step guide with explanations.
+- `手動SOP.md`: Quick checklist (Traditional Chinese). For users who prefer manual operation.
+- `AGENTS.md`: Context for AI assistants working on this repo.
+
+## Constraints
+
+- exFAT target: uses `rsync -rLt` (not `-a`). Permissions not preserved; must be fixed after restore.
+- Never reads credential file contents. Copies by path only; verifies by size.
+- `YOUR_DRIVE_NAME` is a placeholder the user replaces with their actual drive name.
+
+## Language
+
+Documentation is in Traditional Chinese with an English README. The script itself is language-neutral.
