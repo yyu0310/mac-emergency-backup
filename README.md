@@ -8,11 +8,9 @@ English | [繁體中文](README.zh-TW.md) | [简体中文](README.zh-CN.md)
 
 ## Why this exists
 
-A weather app said 30% chance of rain in the afternoon. I went out relaxed. Coming out of a department store parking lot, a rainstorm hit. The backpack was completely soaked despite having a rain cover. The MacBook screen showed color patches and blotches. Water was still dripping from the seams.
+MacBook got water damaged. The M3 MacBook Air has the SSD soldered directly to the motherboard with hardware encryption. **The only way to get data out is to boot the original machine.** You cannot remove the drive and read it externally.
 
-The M3 MacBook Air has the SSD soldered directly to the motherboard with hardware encryption. **The only way to get data out is to boot the original machine.** You cannot remove the drive and read it externally. My last backup was 3 months ago. All my AI configs, custom skills, project files, and work journals were at risk.
-
-I decided to try it: wrote this emergency backup toolkit using Claude Code, booted the water-damaged machine, and operated the backup entirely from my phone via Claude's remote control feature. Under 10 minutes later, everything was safely on the external drive.
+Built this toolkit with Claude Code, booted the water-damaged machine, and ran the entire backup from a phone via Claude's remote control. Under 10 minutes later, everything was safely on the external drive.
 
 This is that toolkit, with personal details removed. I hope you never need it. But if you do, it should help you stay calm and move fast.
 
