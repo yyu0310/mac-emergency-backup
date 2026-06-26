@@ -75,6 +75,17 @@ backup "$HOME/.yarnrc"
 backup "$HOME/.netrc"
 backup "$HOME/.terraform.d"
 
+# ---- .env 系列（散落在家目錄根層，如 .env.twitter、.env.spotify）----
+for f in "$HOME"/.env "$HOME"/.env.*; do
+  [ -e "$f" ] && backup "$f"
+done
+
+# ---- 工作資料（大但重要，盡早跑避免時間壓力下沒跑到）----
+backup "$HOME/Documents"
+backup "$HOME/Desktop"
+backup "$HOME/Downloads"
+# backup "$HOME/Projects"
+
 # ---- VS Code 使用者設定（settings / keybindings / snippets）----
 backup "$HOME/Library/Application Support/Code/User"
 
@@ -115,12 +126,6 @@ fi
 backup "$HOME/bin"
 backup "$HOME/.local/bin"
 backup "$HOME/scripts"
-
-# ---- 第二優先：工作資料（不需要的可在前面加 # 註解掉）----
-backup "$HOME/Documents"
-backup "$HOME/Desktop"
-backup "$HOME/Downloads"
-# backup "$HOME/Projects"
 
 # 把資料真正寫進磁碟（外接碟尤其重要）
 sync
