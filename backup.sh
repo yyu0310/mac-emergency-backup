@@ -48,6 +48,7 @@ backup() {
 }
 
 # ---- 第一優先：最重要、最小、最快（Claude / 設定 / 金鑰 / 專案）----
+# ⚠️ 把下面這行改成你自己的 VS Code Workspace 路徑
 backup "$HOME/Desktop/VS Project"
 backup "$HOME/.claude"
 backup "$HOME/.claude.json"

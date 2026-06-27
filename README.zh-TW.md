@@ -69,7 +69,7 @@ bash /Volumes/YOUR_DRIVE_NAME/backup.sh
 
 | 優先順序 | 項目 |
 |---|---|
-| 最高 | 桌面/VS Project（或你的主要專案資料夾）|
+| 最高 | VS Code Workspace 資料夾（你的主要專案目錄）|
 | 高 | `~/.claude/`、`~/.claude.json`（Claude Code 設定、skills、memory）|
 | 高 | `~/.ssh/`、`~/.config/`、`~/.gitconfig`、shell rc 檔案 |
 | 高 | `~/.aws`、`~/.gnupg`、`~/.kube`、`~/.docker`、`~/.npmrc`、`~/.netrc` |

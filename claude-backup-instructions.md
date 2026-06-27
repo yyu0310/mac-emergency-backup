@@ -75,7 +75,7 @@ du -sh "/Volumes/YOUR_DRIVE_NAME/EmergencyBackup"/mac-backup-*/
 ```
 
 確認：
-- 有 `VS Project`、`.claude` 等資料夾存在。
+- 有 VS Code Workspace 資料夾、`.claude` 等資料夾存在。
 - 總大小是合理的數字（不是 0）。
 - 若有 `errors.log`，打開看是否有嚴重錯誤：
   `cat "/Volumes/YOUR_DRIVE_NAME/EmergencyBackup"/mac-backup-*/errors.log`
@@ -89,7 +89,7 @@ sync
 ```
 
 明確告訴使用者一句話，例如：
-> ✅ 備份完成，已驗證外接碟裡有 VS Project、.claude 等資料，總大小 X GB。**現在可以安全關機了。**
+> ✅ 備份完成，已驗證外接碟裡有 Workspace 資料夾、.claude 等資料，總大小 X GB。**現在可以安全關機了。**
 
 ---
 

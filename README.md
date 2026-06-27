@@ -69,7 +69,7 @@ When you see `✅ 備份完成` (Backup complete) with a size number, shut down 
 
 | Priority | Items |
 |---|---|
-| Highest | Desktop/VS Project (or your main project folder) |
+| Highest | VS Code workspace folder (your main project directory) |
 | High | `~/.claude/`, `~/.claude.json` (Claude Code settings, skills, memory) |
 | High | `~/.ssh/`, `~/.config/`, `~/.gitconfig`, shell rc files |
 | High | `~/.aws`, `~/.gnupg`, `~/.kube`, `~/.docker`, `~/.npmrc`, `~/.netrc` |
