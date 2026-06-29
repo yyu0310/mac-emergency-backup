@@ -18,7 +18,7 @@ This is that toolkit, with personal details removed. I hope you never need it. B
 
 ## What it includes
 
-- **One-command backup script** (`backup.sh`): covers VS Project, Claude Code settings, SSH keys, dotfiles, developer credentials, VS Code settings, launchd agents, and Documents/Desktop/Downloads
+- **One-command backup script** (`backup.sh`): covers your project workspace, Claude Code settings, SSH keys, dotfiles, developer credentials, VS Code settings, launchd agents, and Documents/Desktop/Downloads
 - **Claude Code instruction file** (`claude-backup-instructions.md`): lets Claude drive the backup, verify results, and report back. Designed for phone-based remote control so you minimize physical contact with a wet keyboard
 - **Manual SOP checklist** (`手動SOP.md`): step-by-step checklist if you prefer to run everything yourself
 - **Detailed guide** (`開機備份.md`): background, rationale for each step, and notes on restoring from exFAT

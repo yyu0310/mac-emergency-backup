@@ -18,7 +18,7 @@ MacBook 進水了。M3 MacBook Air 的 SSD 焊死在主機板且硬體加密，*
 
 ## 功能
 
-- **一鍵備份腳本** (`backup.sh`)：涵蓋 VS Project、Claude Code 設定、SSH 金鑰、dotfile、開發者憑證、VS Code 設定、launchd agents、Documents/Desktop/Downloads
+- **一鍵備份腳本** (`backup.sh`)：涵蓋專案資料夾、Claude Code 設定、SSH 金鑰、dotfile、開發者憑證、VS Code 設定、launchd agents、Documents/Desktop/Downloads
 - **Claude Code 指令書** (`claude-backup-instructions.md`)：讓 Claude 自動執行、驗證、回報，適合透過手機遠端操控
 - **手動 SOP** (`手動SOP.md`)：不想用 Claude 也沒關係，對照清單自己跑
 - **詳細版說明** (`開機備份.md`)：進水背景、每一步的原因、exFAT 還原注意事項
@@ -80,8 +80,17 @@ bash /Volumes/YOUR_DRIVE_NAME/backup.sh
 
 ---
 
+## 環境需求
+
+- macOS（在 M3 MacBook Air 上測試）
+- 外接硬碟（exFAT 格式即可，Thunderbolt 4 速度較快）
+- Claude Code 已安裝（方案 A 才需要）
+
+---
+
 ## 注意事項
 
+- 腳本使用 macOS 路徑，**不支援 Linux 或 Windows**
 - 腳本預設備份到 `exFAT` 格式的外接硬碟，**不保存 Unix 權限**，還原後需手動修：
   ```bash
   chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
