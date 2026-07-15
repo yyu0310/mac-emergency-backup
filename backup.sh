@@ -23,6 +23,7 @@ DEST="/Volumes/YOUR_DRIVE_NAME/EmergencyBackup"
 # ============================================================
 STAMP=$(date +%Y%m%d_%H%M%S)
 OUT="$DEST/mac-backup-$STAMP"
+FAIL=0
 
 if ! mkdir -p "$OUT" 2>/dev/null; then
   echo "❌ 無法建立 $OUT"
@@ -41,7 +42,7 @@ backup() {
     echo "→ 備份 $src"
     # -rLt：遞迴、跟隨 symlink 複製真實內容、保留時間戳。
     # 不用 -a，因為目的地是 exFAT，無法保存權限/symlink，會噴錯且漏檔。
-    rsync -rLt --info=progress2 "$src" "$OUT/" 2>>"$OUT/errors.log"
+    rsync -rLt --progress "$src" "$OUT/" 2>>"$OUT/errors.log" || FAIL=$((FAIL+1))
   else
     echo "  略過（不存在）：$src"
   fi
@@ -118,7 +119,7 @@ if [ -d "$LA" ]; then
   mkdir -p "$OUT/launchd-programs"
   while IFS= read -r p; do
     case "$p" in
-      "$HOME"/*) [ -e "$p" ] && rsync -rLtR "$p" "$OUT/launchd-programs/" 2>>"$OUT/errors.log" ;;
+      "$HOME"/*) [ -e "$p" ] && { rsync -rLtR "$p" "$OUT/launchd-programs/" 2>>"$OUT/errors.log" || FAIL=$((FAIL+1)); } ;;
     esac
   done < "$OUT/launchd-referenced-paths.txt"
 fi
@@ -133,7 +134,12 @@ sync
 
 echo ""
 echo "=============================================="
-echo "✅ 備份完成：$(date)"
+if [ "$FAIL" -gt 0 ]; then
+  echo "⚠️ 備份結束但有 $FAIL 項失敗：$(date)"
+  echo "   請看 $OUT/errors.log 確認缺了什麼，再決定要不要關機"
+else
+  echo "✅ 備份完成：$(date)"
+fi
 echo "備份大小："
 du -sh "$OUT" 2>/dev/null
 echo ""
